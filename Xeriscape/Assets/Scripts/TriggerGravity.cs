@@ -19,7 +19,7 @@ public class TriggerGravity : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+            rb.constraints = RigidbodyConstraints2D.FreezePosition; // if you don't refreeze X it often glitches and moves the player sideways
         }
     }
 

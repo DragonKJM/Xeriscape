@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     private bool boosting;
 
     public StaminaBar StaminaBar;
+    public SpriteRenderer flower;
 
     private void Start()
     {
@@ -63,6 +64,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
         StaminaBar.UpdateStaminaBar();
+
+        if (gameObject.transform.position.x < 0)
+            flower.flipX = true;
+
+        else
+            flower.flipX = false;
 
     }
 
