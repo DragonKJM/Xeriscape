@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,15 +5,15 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
     public Image healthBar;
-    public ScoreController scoreController = GameObject.Find("/Background/Flower").GetComponent<ScoreController>(); //Figured out how to find and reference scripts here, like I was trying to do in fruitspawner
-
+    public ScoreController scoreController;
     public float baseHealth;
     public float health;
 
-    private void Start()
+    void Start()
     {
         health = baseHealth;
         healthBar.color = new Color32 (11,123,14, 255);
+
     }
 
     public void UpdateHealthBar()
@@ -31,9 +28,9 @@ public class HealthController : MonoBehaviour
 
         if (health <= 0)
         {
-            Destroy(gameObject);
-            PlayerPrefs.SetInt("Player Score", scoreController.score);
+            //Destroy(gameObject);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            PlayerPrefs.SetInt("Player Score", scoreController.score);
         }
 
     }
