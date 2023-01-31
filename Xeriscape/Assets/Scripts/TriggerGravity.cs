@@ -7,6 +7,7 @@ public class TriggerGravity : MonoBehaviour
     private Rigidbody2D rb;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        //If player touches sky, turn on gravity
         if (collision.CompareTag("Player"))
         {
             rb = collision.GetComponent<Rigidbody2D>();

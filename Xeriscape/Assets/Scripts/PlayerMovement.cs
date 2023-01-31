@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 direction;
 
     public float moveSpeedBase;
-    private float moveSpeed;
+    public float moveSpeed;
     public float staminaBase;
     public float stamina;
     private bool boosting;
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        StaminaBar.updateStaminaBar();
+        StaminaBar.UpdateStaminaBar();
 
     }
 

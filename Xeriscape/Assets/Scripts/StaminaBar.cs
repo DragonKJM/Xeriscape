@@ -10,7 +10,7 @@ public class StaminaBar : MonoBehaviour
 
     public PlayerMovement PlayerMovement;
 
-public void updateStaminaBar()
+public void UpdateStaminaBar()
     {
         staminabar.fillAmount = PlayerMovement.stamina / PlayerMovement.staminaBase;
     }
