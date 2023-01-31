@@ -5,8 +5,9 @@ using UnityEngine;
 public class FruitCollide : MonoBehaviour
 {
     public ScoreController scoreController;
-    public PlayerMovement PlayerMovement;
-    public HealthController HealthController;
+    public PlayerMovement playerMovement;
+    public HealthController healthController;
+    public AudioSource squash;
 
     public float healthDamage;
 
@@ -15,9 +16,10 @@ public class FruitCollide : MonoBehaviour
         if (collision.gameObject.CompareTag("Player")) //For collisions, it needs to specify gameObject
         {
             //if boosting
-            if (PlayerMovement.moveSpeed > PlayerMovement.moveSpeedBase)
+            if (playerMovement.moveSpeed > playerMovement.moveSpeedBase)
             {
                 Destroy(gameObject);
+                squash.Play();
                 scoreController.score += 15;
                 scoreController.UpdateScore();
             }
@@ -28,8 +30,8 @@ public class FruitCollide : MonoBehaviour
     {
         if (collision.CompareTag("Flower"))
         {
-            HealthController.health -= healthDamage;
-            HealthController.UpdateHealthBar();
+            healthController.health -= healthDamage;
+            healthController.UpdateHealthBar();
         }
     }
 

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
     public Image healthBar;
-    public ScoreController scoreController = GameObject.Find("/Background/Flower").GetComponent<ScoreController>(); //Figured out how to find and reference objects here, like I was trying to do in fruitspawner
+    public ScoreController scoreController = GameObject.Find("/Background/Flower").GetComponent<ScoreController>(); //Figured out how to find and reference scripts here, like I was trying to do in fruitspawner
 
     public float baseHealth;
     public float health;
@@ -22,6 +22,9 @@ public class HealthController : MonoBehaviour
     public void UpdateHealthBar()
     {
        healthBar.fillAmount = health / baseHealth;
+
+        if (health > 100) 
+            health = 100;
 
         if (health <= 30)
             healthBar.color = new Color32 (108,16,0,255);

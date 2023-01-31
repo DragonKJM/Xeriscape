@@ -152,4 +152,5 @@ MonoBehaviour:
   scoreController: {fileID: 0}
   PlayerMovement: {fileID: 0}
   HealthController: {fileID: 0}
+  squash: {fileID: 0}
   healthDamage: 20

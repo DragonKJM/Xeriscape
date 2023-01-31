@@ -16,6 +16,7 @@ public class FruitSpawner : MonoBehaviour
     public ScoreController scoreController;
     public PlayerMovement playerMovement;
     public HealthController healthController;
+    public AudioSource squash;
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +35,9 @@ public class FruitSpawner : MonoBehaviour
             GameObject fruit = Instantiate(fruitToSpawn, transform.position, transform.rotation); //instantiates the fruit object
 
             fruit.GetComponent<FruitCollide>().scoreController = scoreController; //Assigns scorecontroller script to instantiated object
-            fruit.GetComponent<FruitCollide>().PlayerMovement = playerMovement;
-            fruit.GetComponent<FruitCollide>().HealthController = healthController;
+            fruit.GetComponent<FruitCollide>().playerMovement = playerMovement;
+            fruit.GetComponent<FruitCollide>().healthController = healthController;
+            fruit.GetComponent<FruitCollide>().squash = squash;
 
             time = 0;
             rateLowered = false;
